@@ -1,0 +1,54 @@
+use hr;
+/*select employee_id,salary,department_id from employees;
+select salary*100 from employees;
+select last_name,job_id,commission_pct from employees;
+select concat(last_name,job_id) from employees;
+select concat(last_name," working for ",salary)emp_sal from employees;
+select distinct employee_id from employees;
+desc employees;
+select employee_id,department_id,DATE_FORMAT(hire_date,'%W,%D,%M,%Y'),salary from employees where DATE_FORMAT(hire_date,'%Y')=1999;*/
+select employee_id,last_name from employees where salary <=10000;
+select employee_id,last_name,salary from employees where salary <>10000;
+select employee_id,last_name,salary,manager_id from employees where salary between 10000 and 11000;
+select employee_id,last_name from employees where manager_id in (101,102,151);/*employes works under manger id 101,102,151*/
+select first_name from employees where first_name like 's%';/*to fetch name starts with s*/
+select employee_id,last_name from employees where last_name like '_o%';/*second letter is o*/
+select employee_id,last_name from employees where manager_id is NULL;
+select employee_id,last_name from employees where salary (salary>= 5000) and (job_id =101); 
+select last_name,job_id,salary from employees where ((job_id = 'SA_REP') OR (job_id = 'AD_PRES')) and (salary > 5000);
+select last_name,hire_date from employees
+		order by hire_date;
+select first_name,hire_date,salary from employees
+		order by salary;
+select lower(last_name),job_id from employees;
+
+select employee_id,last_name,salary from employees
+where salary <ANY< (select salary from employees where job_id = 'IT_PROG');
+
+...............................................................................
+use hr;
+/*select employee_id,salary,department_id from employees;
+select salary*100 from employees;
+select last_name,job_id,commission_pct from employees;
+select concat(last_name,job_id) from employees;
+select concat(last_name," working for ",salary)emp_sal from employees;
+select distinct employee_id from employees;
+desc employees;
+select employee_id,department_id,DATE_FORMAT(hire_date,'%W,%D,%M,%Y'),salary from employees where DATE_FORMAT(hire_date,'%Y')=1999;*/
+select employee_id,last_name from employees where salary <=10000;
+select employee_id,last_name,salary from employees where salary <>10000;
+select employee_id,last_name,salary,manager_id from employees where salary between 10000 and 11000;
+select employee_id,last_name from employees where manager_id in (101,102,151);/*employes works under manger id 101,102,151*/
+select first_name from employees where first_name like 's%';/*to fetch name starts with s*/
+select employee_id,last_name from employees where last_name like '_o%';/*second letter is o*/
+select employee_id,last_name from employees where manager_id is NULL;
+select employee_id,last_name from employees where salary (salary>= 5000) and (job_id =101); 
+select last_name,job_id,salary from employees where ((job_id = 'SA_REP') OR (job_id = 'AD_PRES')) and (salary > 5000);
+select last_name,hire_date from employees
+		order by hire_date;
+select first_name,hire_date,salary from employees
+		order by salary;
+select lower(last_name),job_id from employees;
+
+select employee_id,last_name,salary from employees
+where salary <ANY< (select salary from employees where job_id = 'IT_PROG');
